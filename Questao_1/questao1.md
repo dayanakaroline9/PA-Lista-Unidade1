@@ -1,4 +1,11 @@
 
+
+```
+p == &i;
+*p - *q;
+**&p;
+3 - *p/(*q) + 7;
+```
 p aponta para o endereço de memória da variável i 
 logo, a expressão p == &i tem como resultado o valor 1 (true)
 
