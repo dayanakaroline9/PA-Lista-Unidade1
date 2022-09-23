@@ -1,45 +1,107 @@
-Para o vetor declarado como caractere, sabendo que as variaveis do tipo char ocupa apenas 1 bit na memoria,
-se o endereço de memoria for 4092 para X[0],as operações x+1 pula de 1 em 1 bit
+**Declarando o vetor do tipo char**
 
 ```
-x[0] = 4092
-x+1 = 4093
-x+2 = 4094
-x+3 = 4095
+#include <stdio.h>
+
+int main(void) {
+  char x[4]; 
+  printf("Endereço de X[0]=%d\n",x); 
+  printf("Endereço de X[1]=%d\n",x+1); 
+  printf("Endereço de X[2]=%d\n",x+2); 
+  printf("Endereço de X[3]=%d",x+3); 
+  return 0;
+}
 ```
 
-Para o vetor declarado como inteiro, assumindo que uma variavel do tipo int ocupa 2 bits na memoria, 
-a expressão x+1 pula 2 bits e vai para 4094, conforme prevê abaixo o resultado das operações:
+Saida do programa:
 
 ```
-x[0] = 4092
-x+1 = 4094
-x+2 = 4096
-x+3 = 4098
+Endereço de X[0]=1353202732
+Endereço de X[1]=1353202733
+Endereço de X[2]=1353202734
+Endereço de X[3]=1353202735
 ```
 
-Como as variaveis declaradas do tipo float ocupa 4 bits na memoria, 
-assim a operação x+1 pula de 4 em 4 bits,para o caso do endereço de x[0] ser 4092
-as expressões tem os seguintes resultados:
+Na saida do programa é possivel notar que o endereço modifica apenas o ultimo numero variando de 1 em 1, isso significa que variou 1 bit em cada operação
 
 
-```
-x[0] = 4092
-x+1 = 4096
-x+2 = 4100
-x+3 = 4104
-```
 
-Como as variaveis declaradas do tipo double ocupa 8 bits na memoria, 
-assim a operação x+1 pula de 8 em 8 bits na memoria para o caso do endereço de x[0] ser 4092:
-
+**Declarando vetor do tipo int**
 
 ```
-x[0] = 4092
-x+1 = 4100
-x+2 = 4108
-x+3 = 4116
+#include <stdio.h>
+
+int main(void) {
+  int x[4];
+  printf("Endereço de X[0]=%d\n",x); 
+  printf("Endereço de X[1]=%d\n",x+1);
+  printf("Endereço de X[2]=%d\n",x+2);
+  printf("Endereço de X[3]=%d",x+3); 
+  return 0;
+}
+```
+
+Saida do programa:
+
+```
+Endereço de X[0]=724365872
+Endereço de X[1]=724365876
+Endereço de X[2]=724365880
+Endereço de X[3]=724365884
 ```
 
 
+Na saida do programa é possivel notar que o o endereço modifica os dois ultimos numeros variando de 4 em 4, isso significa que variou 4 bit em cada operação, ou seja, não esta variando apenas 2 bits como previsto no exemplo do endereço 4092.
+
+**Declarando o vetor do tipo float**
+
+```
+#include <stdio.h>
+
+int main(void) {
+  float x[4]; 
+  printf("Endereço de X[0]=%d\n",x); 
+  printf("Endereço de X[1]=%d\n",x+1);
+  printf("Endereço de X[2]=%d\n",x+2); 
+  printf("Endereço de X[3]=%d",x+3);
+  return 0;
+}
+```
+
+Saida do programa:
+
+```
+Endereço de X[0]=902474336
+Endereço de X[1]=902474340
+Endereço de X[2]=902474344
+Endereço de X[3]=902474348
+```
+
+Analizando a saida do problema, percebe-se uma variação de 4 em 4 bits como esperado para o tipo float.
+
+**Declarando vetor do tipo double**
+
+```
+#include <stdio.h>
+
+int main(void) {
+  double x[4]; 
+  printf("Endereço de X[0]=%d\n",x); 
+  printf("Endereço de X[1]=%d\n",x+1);
+  printf("Endereço de X[2]=%d\n",x+2); 
+  printf("Endereço de X[3]=%d",x+3);
+  return 0;
+}
+```
+
+Saida do programa:
+
+```
+Endereço de X[0]=512974688
+Endereço de X[1]=512974696
+Endereço de X[2]=512974704
+Endereço de X[3]=512974712
+```
+
+Analizando a saida do problema, percebe-se uma variação de 8 em 8 bits como esperado para o tipo double.
 
